@@ -8,7 +8,7 @@ namespace WindowsFormsApp1
 {
     public class kuriage
     {
-        public static int Kuriage10(int j)
+        public static int uriage10(int j)
         {
             if (j == 0)
             {
