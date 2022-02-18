@@ -8,48 +8,50 @@ namespace WindowsFormsApp1
 {
     public class JetCoaster
     {
+        static int i = 0;
+
         public static int ride
             (int k, int[] g, int r)
         {
-            int n = 0;
-            int s = k;
+            i = 0;
+            int s = 0; //sはsaishukekka
 
-            for (int j = 0; ; j += 1)
+            for (int j = 1; j <= r; j++)//回す回数
             {
-                if(r == 0)
-                {
-                    break;
-                }
+                s += ride2(k, g);
+            }
+            return s;
+        }
+        public static int ride2(int k, int[] g)//定員、配列
+        {
+            int e = 0;  //eはkekka
 
-                if(j > g.Length - 1)
+            Boolean flg = true;
+            while (flg)
+            {
+                Console.Write(i);
+                if (e + g[i] > k)
                 {
-                    j = 0;
-                }
+                    flg = false;
 
-                Console.WriteLine("g" + g[j]);
-                if(g[j] <= s)
-                {
-                    n += g[j];
-                    s -= g[j];
                 }
-
                 else
                 {
-                    s = k;
-                    r -= 1;
-
-                    if(j <= g.Length - 1)
+                    e += g[i];
+                    if (g.Length == 1)
                     {
-                        j -= 1;
+                        flg = false;
                     }
-                    else
-                    {
-                        j = g.Length - 1;
-                    }
+                    i = (i + 1) % g.Length;
                 }
+
             }
-            return n;
+
+            return e;
+
         }
+
     }
 }
+
 
