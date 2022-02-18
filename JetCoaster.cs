@@ -15,6 +15,13 @@ namespace WindowsFormsApp1
         {
             i = 0;
             int s = 0; //sはsaishukekka
+            int n = 0;
+
+            if (!g.Any())
+            {
+                return n;
+            }
+
 
             for (int j = 1; j <= r; j++)//回す回数
             {
